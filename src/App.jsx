@@ -86,12 +86,29 @@ function App() {
         }
     ];
 
+    const shopName = "Jersey Shop Made with React JS";
+  
     return ( 
         <>
             <section className="items">
-                <h4>Jersey Shop Made with React JS</h4>
-                
-                <div className="product selected">
+                <h4>{shopName}</h4>
+                {items.map(item => 
+                    <div key={item.key} className="product">
+                        <div className="photo">
+                            <img src={"./img/" + item.photo} />
+                        </div>
+                        <div className="description">
+                            <span className="name">{item.name}</span>
+                            <span className="price">$ 99.99</span>
+                            <div className="quantity-area">
+                                <button>-</button>
+                                <span className="quantity">1</span>
+                                <button>+</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+                {/* <div className="product selected">
                     <div className="photo">
                         <img src="././img/real_madrid.webp" />
                     </div>
@@ -216,8 +233,8 @@ function App() {
                             <span className="quantity">1</span>
                             <button>+</button>
                         </div>
-                    </div>
-                </div>
+                    </div> 
+                </div> */}
             </section>
             
 

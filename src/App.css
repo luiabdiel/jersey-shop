@@ -17,6 +17,8 @@ main {
   flex-wrap: wrap;
   padding: 20px 0;
   width: 100%;
+
+  color: #000000;
 }
 
 main > section.items {

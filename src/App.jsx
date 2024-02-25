@@ -64,7 +64,7 @@ function App() {
             price: 119.99,
             active: false,
             quantity: 1, 
-            isInBag: false
+            isInBag: true
         },
         {
             id: 8, 
@@ -82,7 +82,7 @@ function App() {
             price: 89.99,
             active: false,
             quantity: 1, 
-            isInBag: false
+            isInBag: true
         }
     ];
 
@@ -93,18 +93,20 @@ function App() {
             <section className="items">
                 <h4>{shopName}</h4>
                 {items.map(item => 
-                    <div key={item.key} className="product">
+                    <div key={item.id} className={`product ${item.isInBag ? "selected" : ""}`}>
                         <div className="photo">
                             <img src={"./img/" + item.photo} />
                         </div>
                         <div className="description">
                             <span className="name">{item.name}</span>
                             <span className="price">$ 99.99</span>
-                            <div className="quantity-area">
+                           {item.isInBag && (
+                              <div className="quantity-area">
                                 <button>-</button>
                                 <span className="quantity">1</span>
                                 <button>+</button>
-                            </div>
+                              </div>
+                           )}
                         </div>
                     </div>
                 )}

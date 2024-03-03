@@ -65,7 +65,7 @@ function App() {
             price: 119.99,
             active: false,
             quantity: 1, 
-            isInBag: true
+            isInBag: false
         },
         {
             id: 8, 
@@ -86,6 +86,8 @@ function App() {
             isInBag: true
         }
     ];
+
+    const itemsInBag = items.filter(item => item.isInBag)
 
     const shopName = "Jersey Shop Made with React JS";
   
@@ -113,7 +115,7 @@ function App() {
                 )}
             </section>
 
-            <OrderDetails/>
+            {itemsInBag.length > 0 && <OrderDetails/>}
         </>
     );
 }

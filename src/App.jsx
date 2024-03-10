@@ -97,7 +97,11 @@ function App() {
             <section className="items">
                 <h4>{shopName}</h4>
                 {items.map(item => 
-                    <Item item={item} key={item.id} id={item.id}/>
+                    <Item 
+                        selectProduct={(id) => alert(`Clicked product ${id}`)}
+                        item={item} 
+                        key={item.id} 
+                    />
                 )}
             </section>
 

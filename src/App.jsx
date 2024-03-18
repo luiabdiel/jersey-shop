@@ -4,7 +4,7 @@ import Item from "./components/Item"
 import { useState } from 'react';
 
 function App() {
-
+    const shopName = "Jersey Shop Made with React JS";
     const [items, setItems] = useState([
         {
             
@@ -91,7 +91,12 @@ function App() {
 
     const itemsInBag = items.filter(item => item.isInBag)
 
-    const shopName = "Jersey Shop Made with React JS";
+    function selectHandler(id) {
+        let item = items.filter((item) => item.id === id)
+        item.isInBag = !item.isInBag;
+
+        setItems(item.map((element) => element.id === id ? item : element))
+    }
   
     return ( 
         <>
@@ -99,7 +104,7 @@ function App() {
                 <h4>{shopName}</h4>
                 {items.map(item => 
                     <Item 
-                        selectProduct={(id) => setItems([])}
+                        selectProduct={(id) => selectHandler(id)}
                         item={item} 
                         key={item.id} 
                     /> 
